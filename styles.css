@@ -150,3 +150,25 @@ footer a:hover {
     color: white;
     transform: scale(1.1); /* Lo hace un poquito más grande */
 }
+/* ========================================================= */
+/* EFECTOS DE MOUSE PARA COMPUTADORA (:HOVER)                */
+/* ========================================================= */
+
+/* 1. Efecto en la Barra de Navegación de arriba */
+.navbar-nav .nav-link {
+    transition: all 0.3s ease; /* Hace que el cambio sea suave */
+}
+.navbar-nav .nav-link:hover {
+    color: #ffc107 !important; /* Se pinta de amarillo/dorado */
+    transform: scale(1.1); /* Crece un poquito */
+}
+
+/* 2. Efecto 3D en las Tarjetas de los Cortes y Menú */
+.tarjeta-menu {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjeta-menu:hover {
+    transform: translateY(-8px); /* La tarjeta "flota" hacia arriba */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2) !important; /* Sombra más grande para dar efecto 3D */
+    cursor: pointer; /* Cambia la flecha por la manita */
+}
