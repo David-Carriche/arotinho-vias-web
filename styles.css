@@ -1,0 +1,124 @@
+/* Importar fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    padding-top: 56px; /* Compensa la altura del navbar fijo */
+}
+
+/* Configuraciones del Hero Section */
+.hero {
+    /* Imagen de fondo de cortes de carne */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    height: 100vh;
+    min-height: 500px;
+}
+
+.shadow-text {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+}
+
+/* Estilo para las Pestañas del Menú */
+.nav-pills .nav-link {
+    color: #198754; 
+    font-weight: 600;
+    margin: 5px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #e9ecef;
+    border: 1px solid #198754;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #198754; 
+    color: white;
+}
+
+/* Tarjetas de Cortes */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover; 
+}
+
+/* Inputs de los formularios en sección oscura */
+#reservaciones .form-control {
+    background-color: #f8f9fa;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#reservaciones .form-control:focus {
+    box-shadow: none; 
+    border-color: #ffc107;
+}
+
+#reservaciones label {
+    font-weight: 600;
+    color: #e9ecef;
+}
+
+/* Botones y enlaces del footer */
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+footer a:hover {
+    color: #ffc107 !important; 
+    transform: scale(1.1);
+}
+
+/* ========================================================= */
+/* MAGIA DEL CARRUSEL TIPO UBEREATS (SCROLL HORIZONTAL)      */
+/* ========================================================= */
+
+.carrusel-scrolleable {
+    display: flex; /* Alinea los elementos uno al lado del otro */
+    overflow-x: auto; /* Permite el scroll horizontal si no caben */
+    gap: 1.5rem; /* Espacio entre cada tarjeta */
+    padding: 10px; /* Para que la sombra de las tarjetas no se corte */
+    scroll-snap-type: x mandatory; /* Hace que el deslizamiento se ajuste suavemente a la tarjeta */
+}
+
+/* Ocultar la barra de scroll fea en Chrome/Safari para que parezca app móvil */
+.carrusel-scrolleable::-webkit-scrollbar {
+    height: 8px;
+}
+.carrusel-scrolleable::-webkit-scrollbar-thumb {
+    background: #198754; /* Verde Bootstrap */
+    border-radius: 4px;
+}
+.carrusel-scrolleable::-webkit-scrollbar-track {
+    background: #e9ecef; 
+}
+
+/* Configuración de las tarjetas dentro del carrusel */
+.tarjeta-menu {
+    flex: 0 0 auto; /* Evita que las tarjetas se encojan */
+    width: 260px; /* Ancho fijo para cada tarjeta (ajustable) */
+    scroll-snap-align: center; /* Centra la tarjeta al detener el deslizamiento */
+}
+
+/* Ajustes finos para la foto en las nuevas tarjetas */
+.tarjeta-menu .card-img-top {
+    height: 180px; 
+    object-fit: cover;
+}
+.tarjeta-menu .card-body {
+    min-height: 80px; /* Asegura que todas midan lo mismo aunque el nombre sea largo */
+}
