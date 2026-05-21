@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espadas Brasileñas | Garotinho Vias</title>
@@ -334,9 +335,31 @@
             </div>
         </div>
     </section>
-    <section id="testimonios" class="py-5 bg-white">
+    <section id="galeria" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold text-success">Lo que dicen nuestros clientes</h2>
+            <h2 class="text-center mb-5 fw-bold text-dark" data-aos="zoom-in">Nuestra Experiencia</h2>
+            
+            <div class="row g-3"> <div class="col-md-8" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Instalaciones 1" class="img-fluid rounded shadow-sm galeria-img w-100 object-fit-cover" style="height: 350px;">
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instalaciones 2" class="img-fluid rounded shadow-sm galeria-img w-100 object-fit-cover" style="height: 350px;">
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instalaciones 3" class="img-fluid rounded shadow-sm galeria-img w-100 object-fit-cover" style="height: 350px;">
+                </div>
+                <div class="col-md-8" data-aos="fade-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Instalaciones 4" class="img-fluid rounded shadow-sm galeria-img w-100 object-fit-cover" style="height: 350px;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="testimonios" data-aos="fade-up">
+    </section>
+        <div class="container">
+            <h2 class="text-center" data-aos="zoom-in">Lo que dicen nuestros clientes</h2>
             <div class="row g-4">
                 
                 <div class="col-md-4">
@@ -474,12 +497,12 @@
                 
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning fw-bold">Contacto</h5>
-                    <p><i class="fas fa-phone-alt me-2"></i> Teléfono/WhatsApp: <br><strong>771 356 8754</strong></p>
+                    <p><i class="fas fa-phone-alt me-2"></i> Teléfono/WhatsApp: <br><strong>771 722 6614</strong></p>
                     
                     <div class="d-flex gap-3 fs-4 mt-3">
                         <a href="https://www.facebook.com/profile.php?id=100040197445208" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/garotinhobrasilespadas/" class="text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/527713568754" target="_blank" class="text-white"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/527717226614" target="_blank" class="text-white"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -508,8 +531,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
-    <a href="https://wa.me/527713568754" class="btn-flotante-wsp" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/527717226614" class="btn-flotante-wsp" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar las animaciones
+        AOS.init({
+            duration: 800, // Duración de la animación en milisegundos
+            once: true     // Para que la animación solo ocurra una vez al bajar
+        });
+    </script>
 </body>
 </html>

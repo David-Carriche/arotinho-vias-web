@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const formReserva = document.getElementById('formReserva');
 
     if (formReserva) {
-        formReserva.addEventListener('submit', function(evento) {
+        // Le agregamos 'async' aquí para poder esperar la respuesta del servidor
+        formReserva.addEventListener('submit', async function(evento) {
             
             // Evitar que la página recargue
             evento.preventDefault(); 
@@ -16,7 +17,37 @@ document.addEventListener('DOMContentLoaded', function() {
             const hora = document.getElementById('resHora').value;
             const personas = document.getElementById('resPersonas').value;
 
-            // Teléfono del restaurante (código de país 52 sin el símbolo +)
+            // ====================================================================
+            // 1. NUEVA LÓGICA: Enviar al servidor local (Backend)
+            // ====================================================================
+            const reservaData = {
+                nombre: nombre,
+                telefono: telefono,
+                fecha: fecha,
+                hora: hora,
+                personas: personas
+            };
+
+            try {
+                // Transmitir los datos al servidor en milisegundos
+                const respuesta = await fetch('http://localhost:3000/api/reservaciones', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(reservaData)
+                });
+
+                if (respuesta.ok) {
+                    console.log("¡Éxito! Reserva guardada en el backend local.");
+                }
+            } catch (error) {
+                console.error("Error de conexión con el backend:", error);
+            }
+
+            // ====================================================================
+            // 2. LÓGICA ORIGINAL: Enviar a WhatsApp
+            // ====================================================================
             const telefonoRestaurante = "527717226614";
 
             // Formatear el mensaje de WhatsApp

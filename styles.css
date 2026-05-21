@@ -172,3 +172,18 @@ footer a:hover {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2) !important; /* Sombra más grande para dar efecto 3D */
     cursor: pointer; /* Cambia la flecha por la manita */
 }
+/* ========================================================= */
+/* ESTILOS DE LA GALERÍA DE INSTALACIONES                    */
+/* ========================================================= */
+
+.galeria-img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+    filter: brightness(0.9); /* Le da un tono ligeramente oscuro de inicio */
+}
+
+.galeria-img:hover {
+    transform: scale(1.02); /* Se hace un poquito más grande */
+    filter: brightness(1.1); /* Se ilumina resaltando los colores de la carne */
+    z-index: 1; /* Asegura que la foto resalte sobre las demás */
+}

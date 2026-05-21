@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Garotinho Vias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    
+    <div class="container mt-5">
+        <h2 class="mb-4 text-success fw-bold">📅 Recepción de Reservaciones</h2>
+        
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Fecha de la Cita</th>
+                                <th>Cliente</th>
+                                <th>Teléfono</th>
+                                <th>Mesa para</th>
+                                <th>Hora de solicitud</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaReservas">
+                            </tbody>
+                    </table>
+                </div>
+                <div id="mensajeVacio" class="text-center text-muted py-4 d-none">
+                    No hay reservaciones en este momento.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función asíncrona para jalar los datos de tu servidor Node.js
+        async function cargarReservaciones() {
+            try {
+                // Hacemos la petición GET a tu backend local
+                const respuesta = await fetch('http://localhost:3000/api/reservaciones');
+                const reservas = await respuesta.json();
+                
+                const tbody = document.getElementById('tablaReservas');
+                const mensajeVacio = document.getElementById('mensajeVacio');
+                
+                tbody.innerHTML = ''; // Limpiamos la tabla antes de llenarla
+                
+                if(reservas.length === 0) {
+                    mensajeVacio.classList.remove('d-none');
+                } else {
+                    mensajeVacio.classList.add('d-none');
+                    // Recorremos cada reserva y creamos una fila en la tabla
+                    reservas.forEach(res => {
+                        tbody.innerHTML += `
+                            <tr>
+                                <td><strong>${res.fecha}</strong> a las <span class="text-primary fw-bold">${res.hora}</span></td>
+                                <td class="text-capitalize">${res.nombre}</td>
+                                <td>
+                                    <a href="https://wa.me/52${res.telefono}" target="_blank" class="btn btn-sm btn-outline-success">
+                                        📲 ${res.telefono}
+                                    </a>
+                                </td>
+                                <td><span class="badge bg-dark fs-6">${res.personas} px</span></td>
+                                <td><small class="text-muted">${res.fechaRegistro}</small></td>
+                            </tr>
+                        `;
+                    });
+                }
+            } catch (error) {
+                console.error("Error al cargar los datos:", error);
+            }
+        }
+        
+        // Ejecutar la función en cuanto la página cargue
+        cargarReservaciones();
+    </script>
+</body>
+</html>
