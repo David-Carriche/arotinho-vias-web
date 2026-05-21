@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const personas = document.getElementById('resPersonas').value;
 
             // Teléfono del restaurante (código de país 52 sin el símbolo +)
-            const telefonoRestaurante = "527713568754";
+            const telefonoRestaurante = "527717226614";
 
             // Formatear el mensaje de WhatsApp
             const mensaje = `¡Hola! Me gustaría hacer una reservación en Garotinho Vias.%0A%0A*Detalles de la reserva:*%0A👤 Nombre: ${nombre}%0A📞 Teléfono: ${telefono}%0A📅 Fecha: ${fecha}%0A⏰ Hora: ${hora}%0A👥 Personas: ${personas}%0A%0A¿Me podrían confirmar la disponibilidad?`;
